@@ -60,7 +60,7 @@
 
 	<div class="kontener">
 		<div class="auah">
-			<input type="teks" name="bl-satu">
+			<input type="Number" name="bl-satu">
 			<select>
 				<option value="+">+</option>
 				<option value="-">-</option>
@@ -68,7 +68,7 @@
 				<option value="/">/</option>
 				<option value="%">Mod</option>
 			</select>
-			<input type="teks" name="bl-dua">
+			<input type="Number" name="bl-dua">
 			<button class="sama-dengan">=</button>
 			<p class="hasil">0</p>
 		</div>
@@ -100,22 +100,7 @@
 				( select.value == '-' ) ? hasil.textContent = x - y :
 				( select.value == '*' ) ? hasil.textContent = x * y :
 				( select.value == '/' ) ? hasil.textContent = x / y : hasil.textContent = x % y;
-			}
-
-			// awal
-
-			if ( x.value == nX && y.value == nY ) {
-
-				kalo(nX, nY);
-
-			} else {
-				hasil.textContent = 'Ente kadang kadang';
-				hasil.classList.add('sip');
-
-				setTimeout(() => {
-					hasil.classList.remove('sip');
-				}, 300);
-			}
+			} (nX, nY);
 
 		});
 
