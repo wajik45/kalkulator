@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    
+    	* {
+    		margin: 0;
+    	}
+    	.kontener {
+	    	width: 100%;
+	    	height: 100vh;
+	    	display: flex;
+	    	justify-content: center;
+	    	align-items: center;
+	    }
+	    .auah {
+	    	display: flex;
+	    	flex-direction: column;
+	    	padding-bottom: 30px;
+	    	position: relative;
+	    }
+		input {
+			width: 70px;
+		}
+		select {
+			text-align: center;
+		}
+		input, select {
+			margin-bottom: 5px;
+		}
+		p {
+			font-weight: bold;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 200px;
+		}
+
+		/* js */
+
+		.sip {
+			animation: tes 300ms;
+		}
+
+		@keyframes tes {
+			20% { transform: rotate(8deg); }
+			40% { transform: rotate(-8deg); }
+			60% { transform: rotate(8deg); }
+			80% { transform: rotate(-8deg); }
+			100% { transform: rotate(8deg); }
+		}
+
+	</style>
+	<title>Kalkulator Santuy</title>
+</head>
+<body>
+
+	<div class="kontener">
+		<div class="auah">
+			<input type="teks" name="bl-satu">
+			<select>
+				<option value="+">+</option>
+				<option value="-">-</option>
+				<option value="*">*</option>
+				<option value="/">/</option>
+				<option value="%">Mod</option>
+			</select>
+			<input type="teks" name="bl-dua">
+			<button class="sama-dengan">=</button>
+			<p class="hasil">0</p>
+		</div>
+	</div>
+
+	<script>
+
+		// infut
+
+		const x = document.querySelector('input[name=bl-satu]');
+		const y = document.querySelector('input[name=bl-dua]');
+
+		// proses
+
+		const select = document.querySelector('select');
+
+		// otfut
+
+		const samaDengan = document.querySelector('.sama-dengan');
+		const hasil = document.querySelector('.hasil');
+
+		samaDengan.addEventListener('click', () => {
+
+			const nX = Number(x.value);
+			const nY = Number(y.value);
+
+			kalo = function (x, y) {
+				( select.value == '+' ) ? hasil.textContent = x + y :
+				( select.value == '-' ) ? hasil.textContent = x - y :
+				( select.value == '*' ) ? hasil.textContent = x * y :
+				( select.value == '/' ) ? hasil.textContent = x / y : hasil.textContent = x % y;
+			}
+
+			// awal
+
+			if ( x.value == nX && y.value == nY ) {
+
+				kalo(nX, nY);
+
+			} else {
+				hasil.textContent = 'Ente kadang kadang';
+				hasil.classList.add('sip');
+
+				setTimeout(() => {
+					hasil.classList.remove('sip');
+				}, 300);
+			}
+
+		});
+
+	</script>
+</body>
+</html>
